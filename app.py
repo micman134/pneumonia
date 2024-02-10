@@ -29,17 +29,17 @@ if uploaded_file is not None:
     # Perform inference for prediction
     st.write("Performing inference...")
     
-      # Add processing stage: Displaying intermediate layer activations
-        intermediate_layer_model = tf.keras.Model(inputs=model.input, outputs=model.layers[0].output)
-        intermediate_output = intermediate_layer_model.predict(test_image)
+    # Add processing stage: Displaying intermediate layer activations
+    intermediate_layer_model = tf.keras.Model(inputs=model.input, outputs=model.layers[0].output)
+    intermediate_output = intermediate_layer_model.predict(test_image)
 
-        st.subheader("Intermediate Layer Activations")
+    st.subheader("Intermediate Layer Activations")
 
-        # Create an image with the desired colormap using Matplotlib
-        fig, ax = plt.subplots()
-        ax.imshow(intermediate_output[0, :, :, 0], cmap='viridis')
-        ax.axis('off')
-        st.pyplot(fig)
+    # Create an image with the desired colormap using Matplotlib
+    fig, ax = plt.subplots()
+    ax.imshow(intermediate_output[0, :, :, 0], cmap='viridis')
+    ax.axis('off')
+    st.pyplot(fig)
 
     predictions = model.predict(test_image)
 
