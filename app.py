@@ -8,12 +8,12 @@ from tensorflow import keras
 model = keras.models.load_model('Pneumonia.h5')
 
 # Define class labels
-class_labels = ['NORMAL', 'PNEUMONIA']
+class_labels = ['Normal', 'Pneumonia']
 
 # Streamlit App
 st.title("Pneumonia Detection App")
 
-uploaded_file = st.file_uploader("Choose an image...", type=["jpg","png","jpeg"])
+uploaded_file = st.file_uploader("Choose an image...", type="jpg")
 
 if uploaded_file is not None:
     # Display the uploaded image
