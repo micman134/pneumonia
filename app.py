@@ -7,10 +7,9 @@ from tensorflow import keras
 # Upload image through Streamlit
 uploaded_file = st.file_uploader("Choose a test image...", type=["jpg", "jpeg", "png"])
 
-    # Model performance analysis
-    if uploaded_file is not None:
+ # Model performance analysis
+if uploaded_file is not None:
        
-
         # Display the uploaded image for training
         st.image(uploaded_file, caption="Uploaded Image (Training)", use_column_width=True)
 
