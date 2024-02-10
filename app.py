@@ -24,19 +24,22 @@ if uploaded_file is not None:
     # Display the uploaded image for training
     st.image(uploaded_file, caption="Uploaded Image (Training)", use_column_width=True)
 
-    # Load and preprocess the test image
-    st.write("Processing the image...")
 
-    # Process the image and perform inference
-    test_image = image.load_img(uploaded_file, target_size=(224, 224))  # Change target size to (224, 224)
-    st.image(test_image, caption="Processed Image (Training)", use_column_width=True)
-
-    test_image = image.img_to_array(test_image)
-    test_image = np.expand_dims(test_image, axis=0)
-    test_image = test_image / 255.0  # Normalize
 
     # Perform inference for prediction
     st.write("Performing inference...")
+    
+      # Add processing stage: Displaying intermediate layer activations
+        intermediate_layer_model = tf.keras.Model(inputs=model.input, outputs=model.layers[0].output)
+        intermediate_output = intermediate_layer_model.predict(test_image)
+
+        st.subheader("Intermediate Layer Activations")
+
+        # Create an image with the desired colormap using Matplotlib
+        fig, ax = plt.subplots()
+        ax.imshow(intermediate_output[0, :, :, 0], cmap='viridis')
+        ax.axis('off')
+        st.pyplot(fig)
 
     predictions = model.predict(test_image)
 
