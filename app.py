@@ -20,21 +20,12 @@ uploaded_file = st.file_uploader("Choose a test image...", type=["jpg", "jpeg", 
 
     # Model performance analysis
 if uploaded_file is not None:
-        # Countdown before showing uploaded image
-        countdown_text1 = st.empty()
-        countdown(5, countdown_text1)
-        countdown_text1.empty()
-
+        
         # Display the uploaded image for training
         st.image(uploaded_file, caption="Uploaded Image (Training)", use_column_width=True)
 
         # Load and preprocess the test image
         st.write("Processing the image...")
-
-        # Countdown before showing processed image
-        countdown_text2 = st.empty()
-        countdown2(5, countdown_text2)  # Adjust the countdown time if needed
-        countdown_text2.empty()
 
         # Process the image and perform inference
         test_image = image.load_img(uploaded_file, target_size=(224, 224))  # Change target size to (224, 224)
