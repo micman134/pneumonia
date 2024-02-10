@@ -5,7 +5,7 @@ import tensorflow as tf
 from tensorflow import keras
 
 # Upload image through Streamlit
-    uploaded_file = st.file_uploader("Choose a test image...", type=["jpg", "jpeg", "png"])
+uploaded_file = st.file_uploader("Choose a test image...", type=["jpg", "jpeg", "png"])
 
     # Model performance analysis
     if uploaded_file is not None:
