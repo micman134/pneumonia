@@ -8,7 +8,7 @@ from tensorflow import keras
 model = keras.models.load_model('Pneumonia.h5')
 
 # Define class labels
-class_labels = ['Normal', 'Pneumonia']
+class_labels = ['NORMAL', 'PNEUMONIA']
 
 # Streamlit App
 st.title("Pneumonia Detection App")
