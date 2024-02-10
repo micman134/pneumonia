@@ -27,7 +27,7 @@ def predict_pneumonia(image):
 st.title("Pneumonia Detection App")
 
 # Upload Image through Streamlit
-uploaded_file = st.file_uploader("Choose an image...", type="jpg")
+uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 
 if uploaded_file is not None:
     # Display the uploaded image
