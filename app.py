@@ -4,6 +4,11 @@ from PIL import Image
 import tensorflow as tf
 from tensorflow.keras.preprocessing import image
 
+model = keras.models.load_model('Pneumonia.h5')
+
+# Define class labels
+class_labels = ['NORMAL', 'PNEUMONIA']
+
 # Upload image through Streamlit
 uploaded_file = st.file_uploader("Choose a test image...", type=["jpg", "jpeg", "png"])
 
