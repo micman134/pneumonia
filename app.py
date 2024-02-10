@@ -13,7 +13,7 @@ class_labels = ['Normal', 'Pneumonia']
 # Streamlit App
 st.title("Pneumonia Detection App")
 
-uploaded_file = st.file_uploader("Choose an image...", type="jpg")
+uploaded_file = st.file_uploader("Choose an image...", type=["jpg","png",'jpeg'])
 
 if uploaded_file is not None:
     # Display the uploaded image
