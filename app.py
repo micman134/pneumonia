@@ -3,6 +3,8 @@ import numpy as np
 from PIL import Image
 import tensorflow as tf
 from tensorflow.keras.preprocessing import image
+from tensorflow import keras
+
 
 model = keras.models.load_model('Pneumonia.h5')
 
