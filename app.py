@@ -21,8 +21,9 @@ if uploaded_file is not None:
     st.image(image, caption="Uploaded Image", use_column_width=True)
 
     # Preprocess the image
-    img_array = np.array(image.resize((224, 224))) / 255.0
-    img_array = np.expand_dims(img_array, axis=0)
+    img_array = np.array(image.resize((224, 224)))
+    img_array = img_array / 255.0  # Normalize pixel values to between 0 and 1
+    img_array = np.expand_dims(img_array, axis=0)  # Add batch dimension
 
     # Make prediction
     prediction = model.predict(img_array)
