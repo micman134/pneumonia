@@ -25,6 +25,9 @@ if uploaded_file is not None:
     st.image(uploaded_file, caption="Uploaded Image (Training)", use_column_width=True)
 
 
+    test_image = image.img_to_array(test_image)
+    test_image = np.expand_dims(test_image, axis=0)
+    test_image = test_image / 255.0  # Normalize
 
     # Perform inference for prediction
     st.write("Performing inference...")
