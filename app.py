@@ -5,6 +5,9 @@ import tensorflow as tf
 from tensorflow.keras.preprocessing import image
 from tensorflow import keras
 
+def display_class_probabilities(predictions):
+    prob_df = pd.DataFrame({'Cancer Class Category': class_labels, 'Probability (%)': predictions[0] * 100})
+    st.table(prob_df.style.format({'Probability (%)': '{:.2f}%'}))
 
 model = keras.models.load_model('Pneumonia.h5')
 
