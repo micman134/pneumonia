@@ -43,7 +43,7 @@ if page == "Prediction":
             test_image = test_image / 255.0  # Normalize
     
             # Perform inference for prediction
-            st.write("Performing inference...")
+            #st.write("Performing inference...")
     
             predictions = model.predict(test_image)
     
