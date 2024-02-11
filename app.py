@@ -7,7 +7,7 @@ from tensorflow.keras.preprocessing import image
 from tensorflow import keras
 
 def display_class_probabilities(predictions):
-    prob_df = pd.DataFrame({'Cancer Class Category': class_labels, 'Probability (%)': predictions[0] * 100})
+    prob_df = pd.DataFrame({'Class Category': class_labels, 'Probability (%)': predictions[0] * 100})
     st.table(prob_df.style.format({'Probability (%)': '{:.2f}%'}))
 
 try:
@@ -48,7 +48,7 @@ if page == "Prediction":
             predictions = model.predict(test_image)
     
             # Display probability scores for each class
-            st.write("Class Probabilities:")
+            st.write("Prediction Estimate:")
             display_class_probabilities(predictions)
     
             # Print the classification label with probability
