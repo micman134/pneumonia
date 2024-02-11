@@ -56,3 +56,22 @@ if page == "Prediction":
             predicted_class_label = class_labels[predicted_class_index]
             predicted_class_probability = predictions[0][predicted_class_index] * 100
             st.success(f'Predicted Class: {predicted_class_label} with {predicted_class_probability:.2f}% probability')
+
+elif page == "Performance Analysis":
+    # Perform inference for performance analysis
+    st.subheader("Model Performance Analysis")
+    st.text("CNN Model Classification Report")
+    st.image('classificationreport.PNG', caption="Model Classification Report", use_column_width=True)
+   
+    st.text("Training and Validation Graph")
+    st.image('training_validation.PNG', caption="Training and Validation", use_column_width=True)
+    
+    
+    st.text("Performance Analysis For Normal Scan")
+    st.image('NORMAL_metrics.png', caption="Normal Lungs", use_column_width=True)
+    st.text("Performance Analysis For Pneumonia Scan")
+    st.image('PNEUMONIA.png', caption="Pneumonia", use_column_width=True)
+   
+    st.subheader("Model Confusion Matrix")
+    st.image('confusion_matrix.png', caption="Confusion Matrix", use_column_width=True)
+
