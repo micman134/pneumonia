@@ -65,7 +65,7 @@ if page == "Pneumonia Prediction":
             predicted_class_index = np.argmax(predictions)
             predicted_class_label = class_labels[predicted_class_index]
             predicted_class_probability = predictions[0][predicted_class_index] * 100
-            st.success(f'Predicted Class: {predicted_class_label} with {predicted_class_probability:.2f}% probability')
+            st.success(f'Model Prediction: {predicted_class_label} with {predicted_class_probability:.2f}% probability')
 
 elif page == "Model Analysis":
     # Perform inference for performance analysis
