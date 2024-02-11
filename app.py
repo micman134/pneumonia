@@ -70,7 +70,7 @@ elif page == "Performance Analysis":
     st.text("Performance Analysis For Normal Scan")
     st.image('NORMAL_metrics.png', caption="Normal Lungs", use_column_width=True)
     st.text("Performance Analysis For Pneumonia Scan")
-    st.image('PNEUMONIA.png', caption="Pneumonia", use_column_width=True)
+    st.image('PNEUMONIA_metrics.png', caption="Pneumonia", use_column_width=True)
    
     st.subheader("Model Confusion Matrix")
     st.image('confusion_matrix.png', caption="Confusion Matrix", use_column_width=True)
