@@ -75,3 +75,35 @@ elif page == "Performance Analysis":
     st.subheader("Model Confusion Matrix")
     st.image('confusion_matrix.png', caption="Confusion Matrix", use_column_width=True)
 
+elif page == "Processed Pixels":
+    # Upload image through Streamlit
+    uploaded_file = st.file_uploader("Choose a test image...", type=["jpg", "jpeg", "png"])
+
+    if uploaded_file is not None:
+        # Display the uploaded image for training
+        st.image(uploaded_file, caption="Uploaded Image (Training)", use_column_width=True)
+
+        # Load and preprocess the test image
+        st.write("Processing the image...")
+        spinner = display_spinner()  # Display spinner for 5 seconds
+        time.sleep(500)  # Add additional time if needed
+        spinner.empty()  # Remove the spinner
+        test_image = image.load_img(uploaded_file, target_size=(150, 150))
+        st.image(test_image, caption="Processed Image (Training)", use_column_width=True)
+        
+        test_image = image.img_to_array(test_image)
+        test_image = np.expand_dims(test_image, axis=0)
+        test_image = test_image / 255.0  # Normalize
+
+        # Display a table showing pixel values
+        pixel_table = pd.DataFrame(test_image.reshape(-1, 3), columns=['Red', 'Green', 'Blue'])
+        display_limited_rows_with_loading(pixel_table)
+
+        # Download button for CSV file
+        st.download_button(
+            label="Download Pixel Table as CSV",
+            data=pixel_table.to_csv(index=False, encoding='utf-8'),
+            file_name="pixel_table.csv",
+            key="download_csv"
+        )
+
