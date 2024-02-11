@@ -29,9 +29,9 @@ except Exception as e:
 class_labels = ['NORMAL', 'PNEUMONIA']
 
 # Sidebar navigation
-page = st.sidebar.selectbox("Navbar", ["Prediction", "Performance Analysis", "Processed Pixels"])
+page = st.sidebar.selectbox("Navbar", ["Pneumonia Prediction", "Model Analysis", "Processed Image Pixels Table"])
 
-if page == "Prediction":
+if page == "Pneumonia Prediction":
     # Upload image through Streamlit
     uploaded_file = st.file_uploader("Choose a test image...", type=["jpg", "jpeg", "png"])
     
@@ -67,7 +67,7 @@ if page == "Prediction":
             predicted_class_probability = predictions[0][predicted_class_index] * 100
             st.success(f'Predicted Class: {predicted_class_label} with {predicted_class_probability:.2f}% probability')
 
-elif page == "Performance Analysis":
+elif page == "Model Analysis":
     # Perform inference for performance analysis
     st.subheader("Model Performance Analysis")
     st.text("CNN Model Classification Report")
@@ -85,7 +85,7 @@ elif page == "Performance Analysis":
     st.subheader("Model Confusion Matrix")
     st.image('confusion_matrix.png', caption="Confusion Matrix", use_column_width=True)
 
-elif page == "Processed Pixels":
+elif page == "Processed Image Pixels Table":
     # Upload image through Streamlit
     uploaded_file = st.file_uploader("Choose a test image...", type=["jpg", "jpeg", "png"])
 
