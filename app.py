@@ -10,7 +10,11 @@ def display_class_probabilities(predictions):
     prob_df = pd.DataFrame({'Cancer Class Category': class_labels, 'Probability (%)': predictions[0] * 100})
     st.table(prob_df.style.format({'Probability (%)': '{:.2f}%'}))
 
-model = keras.models.load_model('Pneumonia.h5')
+try:
+    model = keras.models.load_model('Pneumonia.h5')
+except Exception as e:
+    st.error(f"Error loading the model: {str(e)}")
+
 
 # Define class labels
 class_labels = ['NORMAL', 'PNEUMONIA']
