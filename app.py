@@ -64,7 +64,7 @@ elif page == "Performance Analysis":
     st.image('classificationreport.PNG', caption="Model Classification Report", use_column_width=True)
    
     st.text("Training and Validation Graph")
-    st.image('training_validation.PNG', caption="Training and Validation", use_column_width=True)
+    st.image('training_validation.png', caption="Training and Validation", use_column_width=True)
     
     
     st.text("Performance Analysis For Normal Scan")
